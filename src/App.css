@@ -1,0 +1,119 @@
+:root {
+  --primary-color: #282c34;
+  --secondary-color: #c5c5c5;
+}
+
+.app {
+  text-align: center;
+  height: 100vh;
+}
+
+.app-header {
+  background-color: var(--primary-color);
+  padding: 10px 0;
+  color: white;
+  text-align: center;
+}
+
+.app-header > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.search-bar {
+  padding: .5rem;
+  width: 15%;
+  border: 2px solid var(--secondary-color);
+  border-radius: 4px;
+  height: 1.5rem;
+  font-size: 16px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+.search-bar:focus {
+  width: 30%;
+}
+
+main {
+  background: linear-gradient(270deg, var(--primary-color), var(--secondary-color));
+  background-size: 400% 400%;
+  animation: backgroundEffect 10s alternate infinite;
+  heigh: 90vh;
+}
+
+.container {
+  display: inline-block;
+  text-align: left;
+  width: 85vw;
+}
+
+.thumbs-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 4rem;
+  justify-content: space-between;
+}
+
+.thumb {
+  align-items: center;
+  background: var(--primary-color);
+  background-size: cover;
+  color: var(--secondary-color);
+  display: flex;
+  height: 300px;
+  justify-content: center;
+  margin-bottom: 50px;
+  opacity: .9;
+  width: 30%;
+
+  transform: scale(1);
+  animation: slideLeft .4s ease-in-out;
+  animation-fill-mode: backwards;
+
+  transition: all .2s ease-in-out;
+}
+
+.thumb:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.thumb:active {
+  position: absolute;
+  left: 0; right: 0; margin: auto;
+  transform: scale(4);
+  z-index: 4;
+}
+
+@keyframes slideLeft { 
+  0% {
+    opacity: 0;
+    transform: translateX(-500px);
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes backgroundEffect { 
+  0% {
+    background-position: 0% 50%
+  }
+
+  50% {
+    background-position: 100% 50%
+  }
+
+  100% {
+    background-position: 0% 50%
+  }
+
+}
